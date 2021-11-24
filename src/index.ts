@@ -1,4 +1,5 @@
 import 'dotenv/config';
+
 import fs from 'fs';
 import path from 'path';
 import axios from 'axios';
@@ -52,9 +53,7 @@ async function removeFavorites() {
           path.join(__dirname, '..', 'error.json'),
           JSON.stringify(error, null, 2),
         );
-
-        console.log(`Check ./error.json for details`);
-      } catch {
+      } finally {
         console.log(error);
       }
 
